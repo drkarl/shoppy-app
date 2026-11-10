@@ -1,5 +1,4 @@
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
+import localFont from "next/font/local";
 import { Toaster } from "sonner";
 
 import { LocalOnlyBanner } from "@/components/layout/LocalOnlyBanner";
@@ -12,6 +11,32 @@ import { ServiceWorkerRegistration } from "@/components/ServiceWorkerRegistratio
 import "./globals.css";
 
 import type { Metadata, Viewport } from "next";
+
+// Geist Sans/Mono variable fonts vendored from the geist 1.9.1 package
+// (SIL Open Font License 1.1, see fonts/OFL.txt) so builds never fetch fonts.
+const GeistSans = localFont({
+  src: "./fonts/Geist-Variable.woff2",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+
+const GeistMono = localFont({
+  src: "./fonts/GeistMono-Variable.woff2",
+  variable: "--font-geist-mono",
+  adjustFontFallback: false,
+  fallback: [
+    "ui-monospace",
+    "SFMono-Regular",
+    "Roboto Mono",
+    "Menlo",
+    "Monaco",
+    "Liberation Mono",
+    "DejaVu Sans Mono",
+    "Courier New",
+    "monospace",
+  ],
+  weight: "100 900",
+});
 
 export const metadata: Metadata = {
   title: {

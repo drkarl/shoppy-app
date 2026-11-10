@@ -113,10 +113,11 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-> **Install troubleshooting:** if `npm install`/`npm ci` fails inside `sharp` with
-> "Please add node-addon-api to your dependencies", the machine has a system
-> libvips that `sharp` prefers over its prebuilt binary. Install with
-> `SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm ci` to use the bundled binary instead.
+> **Install note:** `sharp` is an optional dependency (used by
+> `npm run generate:icons` and Next.js image optimisation). On machines with a
+> system libvips that `sharp` prefers over its prebuilt binary, npm skips it
+> instead of failing the install. Run `SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm ci` to
+> force the prebuilt binary when you need `sharp`.
 
 ## Development Workflow
 
